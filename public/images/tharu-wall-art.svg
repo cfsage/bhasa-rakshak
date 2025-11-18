@@ -1,0 +1,105 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#CD853F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F4A460;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="natureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#90EE90;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sunsetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background (Wall texture) -->
+  <rect width="400" height="300" fill="url(#earthGradient)"/>
+  
+  <!-- Decorative border -->
+  <rect x="10" y="10" width="380" height="280" fill="none" stroke="#8B4513" stroke-width="4"/>
+  <rect x="15" y="15" width="370" height="270" fill="none" stroke="#CD853F" stroke-width="2"/>
+  
+  <!-- Village Scene -->
+  <!-- Ground/Harvest field -->
+  <rect x="0" y="220" width="400" height="80" fill="#8B4513" opacity="0.6"/>
+  <rect x="0" y="200" width="400" height="20" fill="#228B22" opacity="0.4"/>
+  
+  <!-- Traditional Tharu Houses -->
+  <!-- House 1 -->
+  <rect x="50" y="160" width="60" height="60" fill="#CD853F" stroke="#8B4513" stroke-width="2"/>
+  <polygon points="50,160 80,130 110,160" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <rect x="70" y="175" width="20" height="25" fill="#654321"/>
+  <rect x="60" y="185" width="15" height="15" fill="#2F4F4F"/>
+  <rect x="85" y="185" width="15" height="15" fill="#2F4F4F"/>
+  
+  <!-- House 2 -->
+  <rect x="280" y="150" width="70" height="70" fill="#D2691E" stroke="#8B4513" stroke-width="2"/>
+  <polygon points="280,150 315,115 350,150" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <rect x="305" y="170" width="20" height="30" fill="#654321"/>
+  <rect x="290" y="180" width="18" height="18" fill="#2F4F4F"/>
+  <rect x="322" y="180" width="18" height="18" fill="#2F4F4F"/>
+  
+  <!-- Village People (Simplified figures) -->
+  <!-- Person 1 - Woman with traditional basket -->
+  <circle cx="150" cy="195" r="8" fill="#F4A460"/>
+  <rect x="145" y="203" width="10" height="20" fill="#FF6347"/>
+  <rect x="140" y="210" width="25" height="15" fill="#8B4513" opacity="0.7"/>
+  
+  <!-- Person 2 - Man with harvesting tool -->
+  <circle cx="220" cy="195" r="8" fill="#DEB887"/>
+  <rect x="215" y="203" width="10" height="20" fill="#4169E1"/>
+  <line x1="225" y1="205" x2="240" y2="190" stroke="#8B4513" stroke-width="3"/>
+  
+  <!-- Harvest Scene - Rice Plants -->
+  <path d="M100 200 Q105 180 110 200" fill="none" stroke="#228B22" stroke-width="2"/>
+  <path d="M120 200 Q125 185 130 200" fill="none" stroke="#32CD32" stroke-width="2"/>
+  <path d="M160 200 Q165 175 170 200" fill="none" stroke="#228B22" stroke-width="2"/>
+  <path d="M180 200 Q185 180 190 200" fill="none" stroke="#32CD32" stroke-width="2"/>
+  <path d="M240 200 Q245 170 250 200" fill="none" stroke="#228B22" stroke-width="2"/>
+  <path d="M260 200 Q265 175 270 200" fill="none" stroke="#32CD32" stroke-width="2"/>
+  
+  <!-- Traditional Patterns - Border designs -->
+  <circle cx="30" cy="30" r="8" fill="none" stroke="#FF6347" stroke-width="2"/>
+  <circle cx="30" cy="30" r="4" fill="#FF6347"/>
+  <circle cx="370" cy="30" r="8" fill="none" stroke="#FF6347" stroke-width="2"/>
+  <circle cx="370" cy="30" r="4" fill="#FF6347"/>
+  <circle cx="30" cy="270" r="8" fill="none" stroke="#FF6347" stroke-width="2"/>
+  <circle cx="30" cy="270" r="4" fill="#FF6347"/>
+  <circle cx="370" cy="270" r="8" fill="none" stroke="#FF6347" stroke-width="2"/>
+  <circle cx="370" cy="270" r="4" fill="#FF6347"/>
+  
+  <!-- Traditional Motifs -->
+  <path d="M80 50 Q90 40 100 50 Q90 60 80 50" fill="#FF6347" stroke="#8B0000" stroke-width="1"/>
+  <path d="M300 60 Q310 50 320 60 Q310 70 300 60" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M70 120 Q80 110 90 120 Q80 130 70 120" fill="#4169E1" stroke="#000080" stroke-width="1"/>
+  <path d="M310 110 Q320 100 330 110 Q320 120 310 110" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+  
+  <!-- Sun/Moon symbol -->
+  <circle cx="350" cy="80" r="20" fill="url(#sunsetGradient)" stroke="#FF8C00" stroke-width="2"/>
+  <path d="M350 60 L350 50 M350 100 L350 110 M330 80 L320 80 M370 80 L380 80 M335 65 L328 58 M365 65 L372 58 M335 95 L328 102 M365 95 L372 102" stroke="#FFA500" stroke-width="2"/>
+  
+  <!-- Peacock motif (simplified) -->
+  <path d="M200 40 Q190 30 200 20 Q210 30 200 40 Q190 50 200 40" fill="#4169E1" stroke="#000080" stroke-width="1"/>
+  <circle cx="200" cy="25" r="3" fill="#FFD700"/>
+  
+  <!-- Fish symbol (traditional Tharu motif) -->
+  <path d="M100 100 Q120 90 140 100 Q120 110 100 100 M140 100 L145 95 M140 100 L145 105" fill="#4169E1" stroke="#000080" stroke-width="1"/>
+  <circle cx="110" cy="100" r="2" fill="#000"/>
+  
+  <!-- Lotus flower -->
+  <circle cx="300" cy="150" r="8" fill="#FF69B4" stroke="#FF1493" stroke-width="1"/>
+  <circle cx="300" cy="150" r="4" fill="#FFB6C1"/>
+  <ellipse cx="295" cy="150" rx="3" ry="6" fill="#FF69B4"/>
+  <ellipse cx="305" cy="150" rx="3" ry="6" fill="#FF69B4"/>
+  <ellipse cx="300" cy="145" rx="6" ry="3" fill="#FF69B4"/>
+  <ellipse cx="300" cy="155" rx="6" ry="3" fill="#FF69B4"/>
+  
+  <!-- Title -->
+  <text x="200" y="250" text-anchor="middle" fill="#8B4513" font-size="18" font-weight="bold" font-family="serif">Tharu Wall Art</text>
+  <text x="200" y="270" text-anchor="middle" fill="#A0522D" font-size="12" font-family="serif">Cultural Heritage Art</text>
+</svg>
