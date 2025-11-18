@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BHASA RAKSHAK — Digital Museum for Nepal’s Endangered Languages
 
-## Getting Started
+An end‑to‑end demo preserving cultural heritage with instant audio playback, semantic search powered by AI/ML API embeddings + Qdrant, and an auditable decision workflow.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Artifact cards for Lakhe Mask (Newari), Damphu Drum (Tamang), Tharu Wall Art (Tharu)
+- Zero‑latency audio playback using pre‑generated assets
+- Semantic search backed by vector embeddings (AI/ML API or Gemini) and Qdrant nearest match
+- Explainable results with an Audit panel (method, model, confidences, timestamp)
+- Status badge displaying provider/model and Qdrant connectivity
+- Workflow page explaining Intake → Understand → Decide → Review → Deliver
+
+## Architecture
+
+- Frontend: Next.js app (`src/app/page.tsx`, `src/components/ArtifactCard.tsx`)
+- Intelligence: Embeddings via AI/ML API (OpenAI‑style) or Gemini
+- Memory: Qdrant collection `hackathon` storing vectors + payloads
+- Preservation: Voice cloning stub (OpenVoice V2 via Gradio) in `scripts/voice_clone_openvoice.py`
+- Governance: `/workflow` page outlining Opus‑style pipeline and audit artifact
+
+## Tech Stack
+
+- Next.js 16, React 19, Tailwind CSS 4, lucide-react
+- Qdrant Cloud (vector search)
+- AI/ML API embeddings (default) or Google Gemini (fallback)
+
+## Environment Variables
+
+Create `bhasa-rakshak/.env`:
+
+```env
+QDRANT_URL=YOUR_QDRANT_URL
+QDRANT_API_KEY=YOUR_QDRANT_API_KEY
+QDRANT_COLLECTION=hackathon
+
+# Embedding provider: aimlapi (default) or leave unset to use Gemini fallback
+EMBED_PROVIDER=aimlapi
+AIMLAPI_KEY=YOUR_AIMLAPI_KEY
+AIMLAPI_EMBED_MODEL=text-embedding-3-large
+AIMLAPI_EMBED_URL=https://api.aimlapi.com/v1/embeddings
+
+# Optional fallback (if EMBED_PROVIDER not set or AIMLAPI_KEY missing)
+GEMINI_API_KEY=YOUR_GEMINI_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Assets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Place audio and images in `public/`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `public/Audio/Newari_voice.mp4`
+- `public/Audio/tamang_Audio.mp4`
+- `public/Audio/Tharu_voice.mp4`
+- `public/images/lakhe-mask.svg`
+- `public/images/damphu-drum.svg`
+- `public/images/tharu-wall-art.svg`
 
-## Learn More
+## Seed Qdrant (Python)
 
-To learn more about Next.js, take a look at the following resources:
+Populate the `hackathon` collection with 3 artifacts (vectors + payloads):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cd bhasa-rakshak
+python -m pip install google-generativeai qdrant-client moviepy gradio_client requests
+python scripts/seed_database.py
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The script auto‑loads `.env` and supports both AI/ML API and Gemini embeddings.
 
-## Deploy on Vercel
+## Run Locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+cd bhasa-rakshak
+npm install
+npm run dev
+# open http://localhost:3000/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Endpoints
+
+- `POST /api/search`
+  - Body: `{ "query": "Protection" }`
+  - Returns: `{ results: [{ id, confidence }], audit: { method, model, results, timestamp } }`
+  - Methods: `vector_search` (Qdrant `points/search`), `payload_filter`, or `local_keywords`
+
+- `GET /api/status`
+  - Returns: `{ provider, model, collection, qdrantConnected, timestamp }`
+
+## Demo Workflow
+
+Open `http://localhost:3000/workflow` for the narrative of Intake → Understand → Decide → Review → Deliver, including audit artifact contents (fields, confidences, rules fired, review actions, timestamps, IDs, source URLs).
+
+## Submission Checklist
+
+- Public GitHub repository: Next.js app + `scripts/` (seeding + voice cloning stub)
+- Cover image: screenshot of the museum grid
+- Video presentation: 2–3 min demo of UI, audio, search audit, seeding, and workflow
+- Slide presentation: one‑pager with stack (AI/ML API + Qdrant + Next.js + Opus)
+- App hosting & URL: local demo video; optionally deploy and supply live link
+
+## Security
+
+- Do not commit secrets. Keep `AIMLAPI_KEY`, `QDRANT_API_KEY`, and `GEMINI_API_KEY` in `.env`.
