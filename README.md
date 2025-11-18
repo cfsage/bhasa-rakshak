@@ -90,14 +90,3 @@ npm run dev
 
 Open `http://localhost:3000/workflow` for the narrative of Intake → Understand → Decide → Review → Deliver, including audit artifact contents (fields, confidences, rules fired, review actions, timestamps, IDs, source URLs).
 
-## Submission Checklist
-
-- Public GitHub repository: Next.js app + `scripts/` (seeding + voice cloning stub)
-- Cover image: screenshot of the museum grid
-- Video presentation: 2–3 min demo of UI, audio, search audit, seeding, and workflow
-- Slide presentation: one‑pager with stack (AI/ML API + Qdrant + Next.js + Opus)
-- App hosting & URL: local demo video; optionally deploy and supply live link
-
-## Security
-
-- Do not commit secrets. Keep `AIMLAPI_KEY`, `QDRANT_API_KEY`, and `GEMINI_API_KEY` in `.env`.
